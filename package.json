@@ -1,6 +1,6 @@
 {
   "name": "eshop-services-configuration",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "scripts": {
     "build": "tsc",
