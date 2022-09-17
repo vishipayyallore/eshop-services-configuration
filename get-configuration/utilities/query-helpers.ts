@@ -11,3 +11,6 @@ export const hasLocalAppSettings = (query: HttpRequestQuery): boolean =>
 
 export const hasProducts = (query: HttpRequestQuery): boolean => 
   textuallyTruthy(query.products) || 'all' in query
+
+export const hasIdentity = (query: HttpRequestQuery): boolean => 
+  textuallyTruthy(query.identity) || 'all' in query

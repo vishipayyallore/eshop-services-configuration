@@ -1,4 +1,4 @@
-import type{ ConfigurationManager } from "./configuration-manager.type"
+import type { ConfigurationManager } from "./configuration-manager.type"
 import appSettings from "./app-settings"
 import productsSettings from "./products-settings"
 
