@@ -1,7 +1,7 @@
 import { OpenIdConfiguration } from "angular-auth-oidc-client"
 
 export type Configuration = 
-  (AppConfiguration | ProductsConfiguration) & Partial<LeafedConfiguration>
+  (AppConfiguration | ProductsConfiguration | IdentityConfiguration) & Partial<LeafedConfiguration>
 
 export interface LeafedConfiguration {
   appSettings: AppConfiguration
