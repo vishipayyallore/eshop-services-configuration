@@ -3,12 +3,16 @@ import type { ConfigurationManager } from "./configurations/configuration-manage
 import configurations from "./configurations"
 
 
+/**
+ * @name requestDispatcher
+ * @description implements a forwarding pattern sort of approach to response 
+ * composition, in avoidance of a switch statement and mixed responsibilities 
+ **/
 export const requestDispatcher = {
 	configurations,
 	next(configurationRequest: ConfigurationRequest) {
-		requestDispatcher.configurations.forEach((manager: ConfigurationManager) => {
-			manager.behavior(configurationRequest)
-		})
+		requestDispatcher.configurations.forEach(
+			(manager: ConfigurationManager) => manager.behavior(configurationRequest))
 	}
 }
 Object.freeze(requestDispatcher)

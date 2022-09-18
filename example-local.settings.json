@@ -1,0 +1,15 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AzureWebJobsStorage": "",
+    "CDNHOST": "dummy-data",
+    "PRODUCTS_IMAGES_FOLDER": "productimages",
+    "IDENTITY_AUTHORITY": "http://localhost5001",
+    "IDENTITY_SIGNIN": "/post-sign-in-url",
+    "IDENTITY_SIGNOUT": "/post-sign-out-url",
+    "IDENTITY_CLIENTID": "dummy-data",
+    "IDENTITY_SCOPE": "dummy data",
+    "IDENTITY_RESPONSETYPE": "code"
+  }
+}

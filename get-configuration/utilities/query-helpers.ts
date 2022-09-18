@@ -1,4 +1,5 @@
 import type { HttpRequestQuery } from "@azure/functions"
+import { ConfigurationRequest } from "../configuration-request.type"
 
 import { textuallyTruthy } from "./textually-truthy"
 
@@ -9,8 +10,21 @@ export const hasGlobalAppSettings = (query: HttpRequestQuery): boolean =>
 export const hasLocalAppSettings = (query: HttpRequestQuery): boolean => 
   textuallyTruthy(query.appSettings) 
 
-export const hasProducts = (query: HttpRequestQuery): boolean => 
-  textuallyTruthy(query.products) || 'all' in query
+export interface HasMats {
+  type: string 
+  query: HttpRequestQuery
+}
 
-export const hasIdentity = (query: HttpRequestQuery): boolean => 
-  textuallyTruthy(query.identity) || 'all' in query
+export const hasGlobal = ({type, query}: HasMats): boolean => 
+  textuallyTruthy(query[type]) && Object.keys(query).length === 1
+  
+export const hasLocal = ({type, query}: HasMats): boolean => 
+  (textuallyTruthy(query[type]) && Object.keys(query).length > 1)
+  || hasGlobalAppSettings(query)
+
+
+export const factoryGlobalBehavior = ({type, configuration}) => 
+  ({query, body}: ConfigurationRequest) => {
+    if(hasGlobal({type, query})) Object.assign(body, configuration)
+    if(hasLocal({type, query})) body[type] = {...configuration}
+  }

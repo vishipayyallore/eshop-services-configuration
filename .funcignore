@@ -3,5 +3,6 @@
 .git*
 .vscode
 local.settings.json
+example-local.settings.json
 test
 getting_started.md

@@ -1,4 +1,4 @@
-import { OpenIdConfiguration } from "angular-auth-oidc-client"
+import type { OpenIdConfiguration } from "angular-auth-oidc-client"
 
 export type Configuration = 
   (AppConfiguration | ProductsConfiguration | IdentityConfiguration) & Partial<LeafedConfiguration>

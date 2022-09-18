@@ -8,8 +8,7 @@ const configuration: AppConfiguration = {
 }
 
 const behavior = ({query, body}: ConfigurationRequest) => {
-  if(hasGlobalAppSettings(query)) 
-    Object.entries(configuration).forEach(([name, value]) => body[name] = value)
+  if(hasGlobalAppSettings(query)) Object.assign(body, configuration)
   if(hasLocalAppSettings(query)) body.appSettings = {...configuration}
 }
 
