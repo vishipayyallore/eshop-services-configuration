@@ -4,7 +4,8 @@ import { hasGlobalAppSettings, hasLocalAppSettings } from "../utilities/query-he
 
 
 const configuration: AppConfiguration = {
-  cdnHost: process.env.CDNHOST ?? null
+  cdnHost: process.env.CDNHOST ?? null,
+  apiHost: process.env.APIHOST ?? null
 }
 
 const behavior = ({query, body}: ConfigurationRequest) => {

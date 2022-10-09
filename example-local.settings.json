@@ -3,7 +3,8 @@
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "node",
     "AzureWebJobsStorage": "",
-    "CDNHOST": "dummy-data",
+    "CDNHOST": "dummy-cdn",
+    "APIHOST": "dummy-api",
     "PRODUCTS_IMAGES_FOLDER": "productimages",
     "IDENTITY_AUTHORITY": "http://localhost5001",
     "IDENTITY_SIGNIN": "/post-sign-in-url",
