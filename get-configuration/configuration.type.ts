@@ -11,6 +11,7 @@ export interface LeafedConfiguration {
 
 export interface AppConfiguration {
   cdnHost: string
+  apiHost: string
 }
 
 export interface ProductsConfiguration {
