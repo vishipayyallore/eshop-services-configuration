@@ -10,7 +10,7 @@ const httpTrigger: AzureFunction = async function (
     context: Context, 
     req: HttpRequest
 ): Promise<void> {
-    context.log(`[${FUNCTION_NAME}] HTTP trigger function processed a request.`, req.query)
+    context.log(`[${FUNCTION_NAME}] HTTP trigger function processed a request.`, req.query, process.env);
 
     const body: Partial<Configuration> = {}
 		requestDispatcher.next({ query: req.query, body })

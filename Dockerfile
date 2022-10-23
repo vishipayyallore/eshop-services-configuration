@@ -14,10 +14,15 @@
 FROM mcr.microsoft.com/azure-functions/node:4-node16
 
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
-    AzureFunctionsJobHost__Logging__Console__IsEnabled=true
+    AzureFunctionsJobHost__Logging__Console__IsEnabled=true \
+    NODE_ENV=development 
+# CDNHOST=dummy-cdn \
+# APIHOST=dummy-api \
+# PRODUCTS_IMAGES_FOLDER=productimages 
 
 COPY . /home/site/wwwroot
 
 RUN cd /home/site/wwwroot && \
+    mv example-local.settings.json local.settings.json && \
     npm install && \
     npm run build
