@@ -38,12 +38,12 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: eshop-productsapi
+  name: eshop-services-configuration
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: eshop-productsapi
+      app: eshop-services-configuration
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -52,11 +52,11 @@ spec:
   template:
     metadata:
       labels:
-        app: eshop-productsapi
+        app: eshop-services-configuration
     spec:
       containers:
-        - name: eshop-productsapi
-          image: vishipayyallore/eshop-services-products:latest
+        - name: eshop-services-configuration
+          image: vishipayyallore/eshop-services-configuration:latest
           ports:
             - containerPort: 80
           resources:
@@ -76,13 +76,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: eshop-productsapi
+  name: eshop-services-configuration
 spec:
   type: LoadBalancer
   ports:
     - port: 80
   selector:
-    app: eshop-productsapi
+    app: eshop-services-configuration
 ---
 apiVersion: v1
 data:
