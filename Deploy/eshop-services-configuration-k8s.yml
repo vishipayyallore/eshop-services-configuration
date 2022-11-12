@@ -66,11 +66,23 @@ spec:
               cpu: 500m
               memory: 512Mi
           env:
-            - name: MongoDbSettings__ConnectionString
+            - name: CDNHOST
               valueFrom:
                 secretKeyRef:
-                  name: mongo-connection-string
-                  key: MongoDbSettings__ConnectionString
+                  name: configuration-values
+                  key: CDNHOST
+                  optional: false
+            - name: APIHOST
+              valueFrom:
+                secretKeyRef:
+                  name: configuration-values
+                  key: APIHOST
+                  optional: false
+            - name: IDENTITY_AUTHORITY
+              valueFrom:
+                secretKeyRef:
+                  name: configuration-values
+                  key: IDENTITY_AUTHORITY
                   optional: false
 ---
 apiVersion: v1
@@ -85,8 +97,10 @@ spec:
     app: eshop-services-configuration
 ---
 apiVersion: v1
-data:
-  MongoDbSettings__ConnectionString: bW9uZ29kYjovL2VzaG9wLW1vbmdvZGI6MjcwMTc=
 kind: Secret
 metadata:
-  name: mongo-connection-string
+  name: configuration-values
+data:
+  CDNHOST: ZHVtbXktY2Ru
+  APIHOST: ZHVtbXktYXBp
+  IDENTITY_AUTHORITY: aHR0cDovL2xvY2FsaG9zdDo1MDAx
