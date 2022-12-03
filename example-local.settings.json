@@ -12,5 +12,9 @@
     "IDENTITY_CLIENTID": "dummy-data",
     "IDENTITY_SCOPE": "dummy data",
     "IDENTITY_RESPONSETYPE": "code"
+  },
+  "Host": {
+    "CORS": "*",
+    "CORSCredentials": false
   }
 }
