@@ -9,7 +9,7 @@
 >     - System Design (`10 Minutes`)
 > 1. Hands-on `Configuration Service` locally (`10 Minutes`)
 > 1. Review/Q & A/Panel Discussion (`5 Minutes`)
-> 1. What is next in `Session 12`? (`5 Minutes`)
+> 1. What is next in `Session 16`? (`5 Minutes`)
 
 ## 1. Greetings/Introduction Reel (`5 Minutes`)
 
@@ -47,8 +47,8 @@
 
 ## 4. Hands-on `Configuration Service` locally (`10 Minutes`)
 
-> 1. demonstrate in postman
-> 1. demonstrate on commandline
+> 1. Demonstrate in Postman
+> 1. Demonstrate on Commandline
 
 ---
 
