@@ -1,18 +1,18 @@
 ```mermaid
 graph TB;
 
-factoryGlobalBehavior[<em>factoryGlobalBehavior</em><br>type:factory function]
+factoryGlobalBehavior><em>factoryGlobalBehavior</em><br>type:factory function]
 
-TypeConfigurationObject[<em>TypeConfigurationObject</em><br>type:object<br>type, configuration]
+TypeConfigurationObject(<em>TypeConfigurationObject</em><br>type:object<br>type, configuration)
 
-returnFunction(<em>globalBehavior<br> type:function</em><br><em>parameters: </em> ConfigurationRequest<br><em>returns: </em> void)
+returnFunction><em>globalBehavior<br> type:function</em><br><em>parameters: </em> ConfigurationRequest<br><em>returns: </em> void]
 
-ConfigurationRequest[<em>ConfigurationRequest</em><br>type:object<br>query, body]
+ConfigurationRequest(<em>ConfigurationRequest</em><br>type:object<br>query, body)
 
 returnFunction--parameters---ConfigurationRequest
 returnFunction--returns-->void(void)
+returnFunction--mutates body---returnFunction
 
 factoryGlobalBehavior--parameters---TypeConfigurationObject
 factoryGlobalBehavior--return-->returnFunction
-
 ```
