@@ -48,8 +48,23 @@ This repository holds the Configuration Microservices
 ## 2. Introduction `Configuration Service` (`15 Minutes`)
 
 > 1. Why is it needed? (`5 Minutes`)
-> 1. What is a `Configuration Service`? (`5 Minutes`)
-> 1. What should the payload look like from `Configuration Service`? (`5 Minutes`)
+
+A winning pattern in web architecture is to have backend specialists with the frontend team, who design optimized endpoints for the frontend. This can be called _backend for frontend_ (BFF), or _vertical slices_ or _vertical integration_, etc. The location where these endpoints are mounted within the api may not be resolved right away, or may change, and often times there is an api gateway prooject where such decisions are made which is a completely separate project. To ensure that these projects can make their changes without needing to update code in various front end projects, we can advise frontend projects to use a configuration service to render the endpoints to the front end, rather than hardcoding these urls.
+
+### resources
+- [Should frontend developers define endpoint APIs?](https://vaadin.com/blog/should-frontend-developers-define-endpoint-apis) Vaadin
+- [A Deep Dive into the Back-End for Front-End Pattern](https://www.codemag.com/Article/2203081/A-Deep-Dive-into-the-Back-End-for-Front-End-Pattern) CODE Magazine
+- [Vertical AND Horizontal Slices in Agile Software Development](https://medium.com/@timkleier/vertical-and-horizontal-slices-45b7d435ac35) Medium
+
+> 2. What is a `Configuration Service`? (`5 Minutes`)
+
+So a configuration service then needs to render relevant information for accessing an api to the front end. Usually this will be one or more trees of data in json format. It is vital that it be easily extensible, and simple to modify the values that it serves.
+
+Especially while multiple endpoints are required (before complting an api gatway), we want to be able to populate the endpoint from data resulting from deployments, such as from kubernetes.
+
+> 3. What should the payload look like from `Configuration Service`? (`5 Minutes`)
+
+One approach is to allow query parameters to specify which service you want metadata on. Otherwise, a default tree of data should be rendered. Each endpoint can specify its data under a reserved key. These keys are safe to hard code into the project, as they will not be modified with any frequency without a corresponding frontend project.
 
 ## 3. Architecture Overview of `Configuration Service` (`25 Minutes`)
 
@@ -60,10 +75,19 @@ This repository holds the Configuration Microservices
 > 1. Simple Serverless Function (`5 Minutes`)
 >     - In order to simplify design
 >     - Enabled by a reliance on environment variables
-> 1. How do we make the SDLC of this pattern work? (`10 Minutes`)
+
+argue that we only need an azure function since we ar only supporting one endpoint and query parameters.
+
+> 2. How do we make the SDLC of this pattern work? (`10 Minutes`)
 >     - Dispatcher Pattern
 >     - Visitor Pattern
+
+![get configuration pattern](./Documentation/Images/get-configuration.design.png)
+
 >     - Factory Pattern
+
+![factory behavior](./Documentation/Images/factory-global-behavior.png)
+
 
 ### 3.2. System Design (`10 Minutes`)
 
